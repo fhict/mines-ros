@@ -1,3 +1,0 @@
-<launch>
-  <node pkg="stage" type="stageros" name="stageros" args="$(find stage_worlds)/world/wander.world" respawn="false" output="screen" />
-</launch>

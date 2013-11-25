@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot" >
+
+  <xacro:property name="base_radius" value="0.165" />
+  <xacro:property name="base_height" value="0.100" />
+
+  <link name="base_footprint" />
+
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint" />
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  
+  <link name="base_link">
+    <visual>
+			<origin xyz="0 0 ${base_height/2}" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="${base_radius}" length="${base_height}" />
+      </geometry>
+			<material name="lightblue"><color rgba="0.1921 0.5058 0.839 1"/></material>
+    </visual>
+
+  </link>
+           
+</robot>

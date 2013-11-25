@@ -1,0 +1,22 @@
+<launch>
+
+  <!-- Launch stage world -->
+	<param name="/use_sim_time" value="true"/>
+  <include file="$(find stage_worlds)/launch/kinect_world.launch" />
+
+  <!-- Run the map server -->
+  <arg name="map_file" default="$(find stage_navigation)/maps/world_map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- Run AMCL -->
+  <include file="$(find stage_navigation)/move_base_config/amcl_node.xml"/>
+
+  <!-- Run Move Base -->
+  <include file="$(find stage_navigation)/move_base_config/move_base.xml"/>
+
+  <!-- Run rviz -->
+  <include file="$(find stage_navigation)/launch/navigation_rviz.launch" />
+
+
+</launch>
+

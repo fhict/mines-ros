@@ -5,7 +5,7 @@
   <include file="$(find stage_worlds)/launch/kinect_world.launch" />
 
   <!-- Launch robot model -->
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find stage_navigation)/urdf/kinect_robot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find stage_navigation)/urdf/robot.urdf.xacro'" />
 
   <!-- Run gmapping -->
   <include file="$(find stage_navigation)/move_base_config/slam_gmapping.xml"/>

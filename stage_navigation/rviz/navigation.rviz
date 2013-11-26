@@ -5,7 +5,6 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /TF1
         - /TF1/Frames1
         - /TF1/Tree1
         - /Global Map1
@@ -83,13 +82,13 @@ Visualization Manager:
         /base_footprint:
           Value: true
         /base_laser_link:
-          Value: false
+          Value: true
         /base_link:
-          Value: false
+          Value: true
         /map:
-          Value: false
+          Value: true
         /odom:
-          Value: false
+          Value: true
         All Enabled: false
       Marker Scale: 2
       Name: TF
@@ -199,7 +198,7 @@ Visualization Manager:
         - Alpha: 1
           Buffer Length: 1
           Class: rviz/Path
-          Color: 255; 0; 0
+          Color: 0; 0; 255
           Enabled: true
           Name: Planner
           Topic: /move_base_node/TrajectoryPlannerROS/global_plan
@@ -225,7 +224,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 30.1539
+      Distance: 19.1115
       Focal Point:
         X: 0.359644
         Y: 0.951594
@@ -253,5 +252,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1301
-  X: 58
-  Y: 24
+  X: 51
+  Y: 456

@@ -23,7 +23,7 @@ define hokuyo ranger
 # Hokuyo URG-04LX-UG01 Scanning Laser Rangefinder
 (
   sensor( 
-    range [ 0.02  5.6 ]
+    range [ 0.02  4.0 ]
     fov 240
     samples 682 # Angular Resolution 0.352 degrees
   )
@@ -45,7 +45,7 @@ define kinect ranger
 (
   sensor
   (
-    range [ 0.8  5.0 ]
+    range [ 0.8  4.0 ]
     fov 58.0
     samples 640
   )

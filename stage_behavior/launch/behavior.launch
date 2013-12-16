@@ -1,0 +1,48 @@
+<launch>
+
+  <!-- Launch stage world -->
+	<param name="/use_sim_time" value="true"/>
+  <include file="$(find stage_worlds)/launch/kinect_world.launch" />
+	
+  <!-- Arbiter -->
+  <node name="arbiter" pkg="stage_behavior" type="arbiter">
+		<param name="inputs" value="4" />
+		<param name="publish_rate" value="10" />
+  </node>
+
+  <!-- Teleop behavior -->
+<!--
+  <node name="turtlebot_teleop_keyboard" pkg="turtlebot_teleop" type="turtlebot_teleop_key" output="screen">
+    <param name="scale_linear" value="0.5" type="double"/>
+    <param name="scale_angular" value="1.5" type="double"/>
+    <remap from="turtlebot_teleop_keyboard/cmd_vel" to="cmd_vel0"/>
+  </node>
+-->
+
+  <!-- Escape behavior -->
+  <node name="escape" pkg="stage_behavior" type="escape_behavior">
+		<remap from="scan" to="base_scan"/>
+    <remap from="cmd_vel" to="cmd_vel1"/>
+		<param name="publish_rate" value="20"/>
+  	<param name="backoff_duration" value="1.0" />
+  	<param name="backoff_velocity" value="0.5" />
+  	<param name="turn_duration" value="1.0" />
+  	<param name="turn_velocity" value="1.5" />
+		<param name="bump_distance" value="1.0" />
+		<param name="robot_size" value="0.33" />
+  </node>
+
+  <!-- Cruise behavior -->
+  <node name="cruise" pkg="stage_behavior" type="cruise_behavior">
+    <remap from="cmd_vel" to="cmd_vel2"/>
+  </node>
+
+  <!-- Other behavior -->
+<!--
+  <node name="other_behavior" pkg="stage_behavior" type="other_behavior">
+    <remap from="cmd_vel" to="cmd_vel3"/>
+  </node>
+-->
+
+</launch>
+

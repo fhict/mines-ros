@@ -15,7 +15,7 @@ public:
 protected:
 	// members
 	ros::NodeHandle nh_,ph_;
-  ros::Publisher vel_pub_;
+    ros::Publisher vel_pub_;
 	ros::Timer timer_;
 
 	int rate_; // update and publish rate (Hz)
@@ -31,10 +31,10 @@ protected:
 
 CruiseBehavior::CruiseBehavior():
   ph_("~"),
-	rate_(10),
-	cruise_vel_(0.5)
+  rate_(10),
+  cruise_vel_(0.5)
 {
-	ph_.param("publish_rate", rate_, rate_);
+  ph_.param("publish_rate", rate_, rate_);
   ph_.param("cruise_velocity", cruise_vel_, cruise_vel_);
 
   vel_pub_ = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 1);
@@ -46,7 +46,7 @@ void CruiseBehavior::publish(double angular, double linear)
   geometry_msgs::Twist vel;
   vel.angular.z = angular;
   vel.linear.x = linear;
-	vel_pub_.publish(vel);    
+  vel_pub_.publish(vel);    
   return;
 }
 
@@ -56,7 +56,7 @@ bool CruiseBehavior::isTriggered(void) {
 
 void CruiseBehavior::update(void)
 {
-	if (isTriggered())
+  if (isTriggered())
   {
   	publish(0.0,cruise_vel_);
   }
@@ -65,7 +65,7 @@ void CruiseBehavior::update(void)
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "escape_behavior");
-  CruiseBehavior escape_behavior;
+  CruiseBehavior cruise_behavior;
   ros::spin();
 
   return 0;
